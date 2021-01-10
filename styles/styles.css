@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    width: 90%;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 500;
+    padding-bottom: 20;
+}
+
+img {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    width:100%;
+    max-width:450px;
+}
+
+.delete-btn {
+    display: inline-block;
+    border: 0;
+    padding:0.7em 2.7em;
+    margin:10px 1.9em 1.9em 0;
+    border-radius:0.2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    color:#FFFFFF;
+    background-color:#089797;
+    box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+    text-align:center;
+    position:relative;
+
+}

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     createTitanForm();
     fetchTitans();
+
     
   });
 
@@ -32,17 +33,44 @@ function createTitanForm() {
 
     monsterForm.innerHTML += 
     `
-    <form>
-        Titan Name: <input type="text" id="nickname"><br>
-        Titan Class: <input type="text" id="tclass"><br>
-        Titan Size: <input type="text" id="size"><br>
-        Titan Image: <input type="text" id="image-src"><br>
-        Titan Details: <input type="text" id="details"><br>
-        <input type="submit" value="Log Titan">
+    <form> 
+        <div class="field"> 
+            <div class="control">
+                <input type="text" class="input is-medium is-primary" placeholder="Titan Name" id="nickname"><br>
+            </div>
+        </div>
+        <div class="field"> 
+            <div class="control">
+                <input type="text" class="input is-medium is-primary" placeholder="Titan Class" id="tclass"><br>
+            </div>
+        </div>
+        <div class="field"> 
+            <div class="control">
+                <input type="text" class="input is-medium is-primary" placeholder="Titan Size" id="size"><br>
+            </div>
+        </div>
+        <div class="field"> 
+            <div class="control">
+                <input type="text" class="input is-medium is-primary" placeholder="Titan Image Source" id="image-src"><br>
+            </div>
+        </div>
+        <div class="field"> 
+            <div class="control">
+                <textarea class="textarea is-medium is-primary" placeholder="Titan Details" id="details"></textarea>
+            </div>
+        </div>
+
+        <div class="control">
+            <button class="button is-primary">Register Titan</button>
+        </div>
+
     </form>
     `
 
     monsterForm.addEventListener("submit", monsterFormSubmitHandler)
+
+    // debugger;
+    // monsterForm.reset();
 
 }
 
@@ -73,10 +101,11 @@ function monsterFormSubmitHandler() {
         body: JSON.stringify(newTitan)
     })
     .then(function(response) {
-        return response;
+        return response.json();
     })
-    .then(titans => {
-        let titan1 = new Titan(titan_inst.id, titan_inst.nickname, titan_inst.tclass, titan_inst.size, titan_inst.image_src, titan_inst.details)
+    .then(newTitan => {
+        let titan1 = new Titan(newTitan.id, newTitan.nickname, newTitan.tclass, newTitan.size, newTitan.image_src, newTitan.details)
+
         titan1.renderTitan();
 
     })
@@ -86,15 +115,32 @@ function monsterFormSubmitHandler() {
 
 
     // Want to be able to Delete a Titan
+    let monsterContainer = document.getElementById("monster_instance_container")
 
-    let delButton = document.getElementsByClassName("delete-btn")
-    console.log(delButton)
-    document.getElementById("parent-list").addEventListener
-    // delButton.forEach( (btn) => {
-    //     btn.addEventListener("click", () => { 
-    //         debugger;
-    //     })
-    // })
+    monsterContainer.addEventListener("click", function(e) {
+      
+        // e.target is the clicked element!
+        if(e.target && e.target.matches("button.delete-btn")) {
+            let monsterListItem = document.getElementById(`titanDivId-${e.target.dataset.id}`)
+
+            let titanId = e.target.dataset.id
+            fetch(`${BASE_URL}/titans/${titanId}`, {
+                method: 'DELETE',
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                }
+            })
+            .then(response => response.json())
+            .then(monsterListItem.remove())
+
+            
+        }           
+    });
+    
+
+    function deleteTitan() {
+    }
 
 
 

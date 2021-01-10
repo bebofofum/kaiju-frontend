@@ -26,11 +26,12 @@ class Titan {
 
 
         titanImg.src = this.image_src
+        titanDivList.setAttribute("id",`titanDivId-${this.id}`)
         titanItmHead.innerText = `Titan Name: ${this.nickname}`
         titanItmSize.innerText = `Size: ${this.size}`
         titanItmClass.innerText = `Class: ${this.tclass}`
         deleteBtn.setAttribute("class","delete-btn");
-        deleteBtn.setAttribute("data-id",`${this.id}`);
+        deleteBtn.setAttribute("data-id",this.id);
         deleteBtn.innerText = "Delete"
 
         titanItem.appendChild(titanDivList)
