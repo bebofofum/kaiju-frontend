@@ -21,18 +21,37 @@ class Titan {
         const titanItmSize = document.createElement('p')
         const titanImg = document.createElement('img')
         const deleteBtn = document.createElement('button')
+        const addSightingBtn = document.createElement('button')
 
+        const sightingForm = document.createElement('form')
+        const sightingDivField = document.createElement('div')
+        const sightingDivControl = document.createElement('div')
+        const sightingField = document.createElement('fieldset')
+        const sightingFormInput = document.createElement('input')
 
+        sightingForm.classList.add("toggle-vis")
+        sightingDivField.setAttribute("class","field")
+        sightingDivControl.setAttribute("class","control")
 
+        sightingFormInput.setAttribute("type","text")
+        sightingFormInput.setAttribute("placeholder","Sighting Location")
+        sightingFormInput.setAttribute("id","sighting-event")
+        sightingFormInput.setAttribute("class","input is-medium is-primary")
 
         titanImg.src = this.image_src
         titanDivList.setAttribute("id",`titanDivId-${this.id}`)
+        titanDivList.setAttribute("class","titanDiv")
+
         titanItmHead.innerText = `Titan Name: ${this.nickname}`
         titanItmSize.innerText = `Size: ${this.size}`
         titanItmClass.innerText = `Class: ${this.tclass}`
+
         deleteBtn.setAttribute("class","delete-btn");
         deleteBtn.setAttribute("data-id",this.id);
         deleteBtn.innerText = "Delete"
+
+        addSightingBtn.setAttribute("class","add-sighting-btn");
+        addSightingBtn.innerText = "Add Sighting"
 
         titanItem.appendChild(titanDivList)
         titanDivList.appendChild(titanList)
@@ -43,7 +62,13 @@ class Titan {
         titanListItem.appendChild(titanItmClass)
         titanListItem.appendChild(titanDetail).innerText = `Description: ${this.details}`
         titanListItem.appendChild(deleteBtn)
+        titanListItem.appendChild(addSightingBtn)
 
+        titanDivList.appendChild(sightingForm)
+        sightingForm.appendChild(sightingDivField)
+        sightingDivField.appendChild(sightingDivControl)
+        sightingDivControl.appendChild(sightingField)
+        sightingField.appendChild(sightingFormInput)
 
 
     }

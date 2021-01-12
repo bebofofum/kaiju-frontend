@@ -26,7 +26,7 @@ img {
     max-width:450px;
 }
 
-.delete-btn {
+.delete-btn, .add-sighting-btn {
     display: inline-block;
     border: 0;
     padding:0.7em 2.7em;

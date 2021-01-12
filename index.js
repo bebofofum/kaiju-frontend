@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     createTitanForm();
     fetchTitans();
+    fetchSightings()
+
 
     
   });
@@ -18,8 +20,11 @@ document.addEventListener("DOMContentLoaded", function() {
             let titan1 = new Titan(titan_inst.id, titan_inst.nickname, titan_inst.tclass, titan_inst.size, titan_inst.image_src, titan_inst.details)
             titan1.renderTitan();
         }
-    })
-}
+        
+
+
+     })
+  }
 
     
 // Want to be able to Create a Titan
@@ -69,12 +74,11 @@ function createTitanForm() {
 
     monsterForm.addEventListener("submit", monsterFormSubmitHandler)
 
-    // debugger;
-    // monsterForm.reset();
+
 
 }
 
-function monsterFormSubmitHandler() {
+function monsterFormSubmitHandler(event) {
 
     event.preventDefault();
         
@@ -105,42 +109,56 @@ function monsterFormSubmitHandler() {
     })
     .then(newTitan => {
         let titan1 = new Titan(newTitan.id, newTitan.nickname, newTitan.tclass, newTitan.size, newTitan.image_src, newTitan.details)
-
         titan1.renderTitan();
+        event.target.reset();
 
     })
+
 
 }
 
 
 
     // Want to be able to Delete a Titan
-    let monsterContainer = document.getElementById("monster_instance_container")
+    // let monsterContainer = document.getElementById("monster_instance_container")
 
-    monsterContainer.addEventListener("click", function(e) {
+    // monsterContainer.addEventListener("click", function(e) {
       
-        // e.target is the clicked element!
-        if(e.target && e.target.matches("button.delete-btn")) {
-            let monsterListItem = document.getElementById(`titanDivId-${e.target.dataset.id}`)
+    //     // e.target is the clicked element!
+    //     if(e.target && e.target.matches("button.delete-btn")) {
+    //         let monsterListItem = document.getElementById(`titanDivId-${e.target.dataset.id}`)
 
-            let titanId = e.target.dataset.id
-            fetch(`${BASE_URL}/titans/${titanId}`, {
-                method: 'DELETE',
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                }
-            })
-            .then(response => response.json())
-            .then(monsterListItem.remove())
-
-            
-        }           
-    });
+    //         let titanId = e.target.dataset.id
+    //         fetch(`${BASE_URL}/titans/${titanId}`, {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 "Accept": "application/json",
+    //                 "Content-Type": "application/json",
+    //             }
+    //         })
+    //         .then(response => response.json())
+    //         .then(monsterListItem.remove())          
+    //     }           
+    // });
     
 
-    function deleteTitan() {
-    }
+// Want to fetch listings of Sightings based on a Titan ID and see its details
+
+  function fetchSightings() {
+    fetch(`${BASE_URL}/sightings`)
+    .then(response => response.json())
+    .then(sightings => {
+        sightings.forEach(sighting => {
+            let jsSightingObj = new Sighting(sighting.id, sighting.location, sighting.titan_id)
+            
+            jsSightingObj.renderSighting();
+
+        })
+            
+            
+     })
+  }
+
 
 
 
