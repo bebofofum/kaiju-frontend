@@ -1,11 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     createTitanForm();
     fetchTitans();
-    fetchSightings()
-
-
+    fetchSightings();
     
   });
+
+  document.addEventListener("load", function() {
+      console.log("Load is done.")
+  })
+
+
 
   const BASE_URL = "http://localhost:3000"
 
@@ -21,8 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
             titan1.renderTitan();
         }
         
-
-
      })
   }
 
@@ -78,6 +80,8 @@ function createTitanForm() {
 
 }
 
+// this fetch (POST:CREATE) is called in using the submit event listener above. Move this to eventlister.js?
+
 function monsterFormSubmitHandler(event) {
 
     event.preventDefault();
@@ -114,35 +118,12 @@ function monsterFormSubmitHandler(event) {
 
     })
 
-
 }
 
 
-
-    // Want to be able to Delete a Titan
-    // let monsterContainer = document.getElementById("monster_instance_container")
-
-    // monsterContainer.addEventListener("click", function(e) {
-      
-    //     // e.target is the clicked element!
-    //     if(e.target && e.target.matches("button.delete-btn")) {
-    //         let monsterListItem = document.getElementById(`titanDivId-${e.target.dataset.id}`)
-
-    //         let titanId = e.target.dataset.id
-    //         fetch(`${BASE_URL}/titans/${titanId}`, {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 "Accept": "application/json",
-    //                 "Content-Type": "application/json",
-    //             }
-    //         })
-    //         .then(response => response.json())
-    //         .then(monsterListItem.remove())          
-    //     }           
-    // });
     
 
-// Want to fetch listings of Sightings based on a Titan ID and see its details
+// Want to fetch (GET:READ) listings of Sightings based on a Titan ID and see its details
 
   function fetchSightings() {
     fetch(`${BASE_URL}/sightings`)
@@ -160,8 +141,3 @@ function monsterFormSubmitHandler(event) {
   }
 
 
-
-
-    // Want to be able to Read the a listing of a specific Titans sightings
-    // Want to be able to Create a Sighting for a Titan
-    // Deleting a Titan should delete the associated Sightings

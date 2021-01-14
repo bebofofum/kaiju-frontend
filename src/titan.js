@@ -28,15 +28,20 @@ class Titan {
         const sightingDivControl = document.createElement('div')
         const sightingField = document.createElement('fieldset')
         const sightingFormInput = document.createElement('input')
+        const submitSightingBtn = document.createElement('button')
 
         sightingForm.classList.add("toggle-vis")
+        sightingForm.setAttribute("id",`formId-${this.id}`);
         sightingDivField.setAttribute("class","field")
         sightingDivControl.setAttribute("class","control")
 
         sightingFormInput.setAttribute("type","text")
         sightingFormInput.setAttribute("placeholder","Sighting Location")
-        sightingFormInput.setAttribute("id","sighting-event")
+        sightingFormInput.setAttribute("id",`sighting-event-${this.id}`)
         sightingFormInput.setAttribute("class","input is-medium is-primary")
+        
+        submitSightingBtn.setAttribute("class","submit-sighting-btn");
+        submitSightingBtn.innerText = "Submit Sighting"
 
         titanImg.src = this.image_src
         titanDivList.setAttribute("id",`titanDivId-${this.id}`)
@@ -50,7 +55,8 @@ class Titan {
         deleteBtn.setAttribute("data-id",this.id);
         deleteBtn.innerText = "Delete"
 
-        addSightingBtn.setAttribute("class","add-sighting-btn");
+        addSightingBtn.setAttribute("class","add-sighting-btn toggle-form-vis");
+        addSightingBtn.setAttribute("data-id",this.id);
         addSightingBtn.innerText = "Add Sighting"
 
         titanItem.appendChild(titanDivList)
@@ -69,7 +75,7 @@ class Titan {
         sightingDivField.appendChild(sightingDivControl)
         sightingDivControl.appendChild(sightingField)
         sightingField.appendChild(sightingFormInput)
-
+        sightingForm.appendChild(submitSightingBtn)
 
     }
 
