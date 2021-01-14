@@ -13,11 +13,23 @@ h1, h2, h3, h4, h5, h6, .title {
     font-family: 'Montserrat', sans-serif;
 }
 
+
+h1 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 500;
+    padding-bottom: 20;
+}
+
+
 h3 {
+    text-align: center;
     font-size: 32px;
     font-weight: 500;
     padding-bottom: 20;
 }
+
+
 
 img {
     padding-top: 50px;
@@ -26,7 +38,7 @@ img {
     max-width:450px;
 }
 
-.delete-btn, .add-sighting-btn {
+.delete-btn, .add-sighting-btn, .submit-sighting-btn {
     display: inline-block;
     border: 0;
     padding:0.7em 2.7em;
@@ -39,5 +51,33 @@ img {
     box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
     text-align:center;
     position:relative;
+
+}
+
+.toggle-vis {
+	display: none;
+}
+
+.toggle-vis.is-visible {
+	display: block;
+}
+
+
+.container {
+    width: 600px;
+    display: grid;
+    justify-content: center;
+    border: 1px solid #2d2d2d;
+    padding: 0 50 50 50;
+    background-color: #ffffff;
+
+  
+}
+
+.top-logo-ctr {
+    margin: auto;
+    padding-bottom: 20px;
+    width:100%;
+    max-width:160px;
 
 }
