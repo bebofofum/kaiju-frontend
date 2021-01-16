@@ -3,7 +3,7 @@ class Sighting {
         this.id = id;
         this.location = location;
         this.titanId = titanId;
-        Sighting.all.push(this);
+        // Sighting.all.push(this);
     }
 
     // setSightingContainer() {
@@ -43,14 +43,14 @@ class Sighting {
     }
 
 
-    renderSightingForm() {
+    // renderSightingForm() {
 
-    }
+    // }
 
    
 }
 
-Sighting.all = []
+// Sighting.all = []
 
 
 

@@ -6,7 +6,7 @@
 
 body {
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, .title {
@@ -36,6 +36,10 @@ img {
     padding-bottom: 20px;
     width:100%;
     max-width:450px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .delete-btn, .add-sighting-btn, .submit-sighting-btn {
@@ -81,3 +85,25 @@ img {
     max-width:160px;
 
 }
+
+.bg-dark-red {
+    background-color: #140404
+}
+
+.parallax {
+    background-image: url("https://beboport.design/titan_images/background-monarch.jpg");
+    height: 2100px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+
+}
+
+
+#monster-form {
+    width: 500px;
+}
+
