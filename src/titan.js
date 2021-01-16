@@ -8,7 +8,53 @@ class Titan {
         this.details = details;
     }
 
-    // then make function to render a titan instance to the Dom
+
+    // function to render a titan form to Dom
+
+    static createTitanForm() {
+        let monsterForm = document.getElementById("monster-form")
+    
+        monsterForm.innerHTML += 
+        `
+        <form class="titan-form"> 
+            <div class="field"> 
+                <div class="control">
+                    <input type="text" class="input is-medium is-primary" placeholder="Titan Name" id="nickname"><br>
+                </div>
+            </div>
+            <div class="field"> 
+                <div class="control">
+                    <input type="text" class="input is-medium is-primary" placeholder="Titan Class" id="tclass"><br>
+                </div>
+            </div>
+            <div class="field"> 
+                <div class="control">
+                    <input type="text" class="input is-medium is-primary" placeholder="Titan Size" id="size"><br>
+                </div>
+            </div>
+            <div class="field"> 
+                <div class="control">
+                    <input type="text" class="input is-medium is-primary" placeholder="Titan Image Source" id="image-src"><br>
+                </div>
+            </div>
+            <div class="field"> 
+                <div class="control">
+                    <textarea class="textarea is-medium is-primary" placeholder="Titan Details" id="details"></textarea>
+                </div>
+            </div>
+    
+            <div class="control">
+                <button class="button is-primary">Register Titan</button>
+            </div>
+    
+        </form>
+        `
+        
+    }
+
+
+    // function to render a titan instance to the Dom
+    
     renderTitan() {
         let titanItem = document.getElementById("monster_instance_container")
 
