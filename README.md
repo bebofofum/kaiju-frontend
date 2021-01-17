@@ -1,6 +1,9 @@
 Project Name:
 Titan Tracker
 
+Link to API Backend on Github:
+https://github.com/bebofofum/kaiju-api.git
+
 Project Description:
 A SPA (single page app) that imagines the user as an employee of a ficional agency for monitoring giant monsters known as Titan (or kaiju). The employee interace allows for the creation of Titans instances including descriptions then adding Sighting locations of that titan. Each successsfully created Titan and/or Sighting will be persisted to a backend database and served back to the frontend via AJAX requests.
 
