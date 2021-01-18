@@ -66,8 +66,12 @@ document.addEventListener("submit", function(e) {
             },
             body: JSON.stringify(newTitan)
         })
-        .then(function(response) {
-            return response.json();
+        .then(response => {
+            if(response.ok) {
+                return response.json()
+            } else {
+                return response.text().then(err => Promise.reject(err))
+            } 
         })
         .then(newTitan => {
             let jsTitanObj = new Titan(newTitan.id, newTitan.nickname, newTitan.tclass, newTitan.size, newTitan.image_src, newTitan.details)
