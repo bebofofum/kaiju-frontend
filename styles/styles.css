@@ -98,8 +98,19 @@ img {
     background-repeat: no-repeat;
     background-size: cover;
 
+}
 
+.opacity-zero {
+    opacity: 0;
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+}
 
+.h-10 {
+    height: 10px;
+    line-height: 0px;
+    margin-top: 20px;
+    padding: 20px;
 }
 
 
