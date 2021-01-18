@@ -8,9 +8,9 @@ Project Description:
 A SPA (single page app) that imagines the user as an employee of a ficional agency for monitoring giant monsters known as Titan (or kaiju). The employee interace allows for the creation of Titans instances including descriptions then adding Sighting locations of that titan. Each successsfully created Titan and/or Sighting will be persisted to a backend database and served back to the frontend via AJAX requests.
 
 Project Install Instructions:
-Clone the repos. BackedEnd and FrontEnd are in separate repos.
+Clone the repos. BackedEnd and FrontEnd are in separate repos, kaiju-frontend and kaiju-api respectively.
 
-In terminal, shift to the backend/kaiju-api app directory by typing cd 'backend/kaiju-api'.
+In terminal, shift to the backend directory by typing cd 'kaiju-api'.
 
 Run 'bundle install' to ensure all dependencies are installed.
 
@@ -18,7 +18,7 @@ Run 'rake db:migrate' in Terminal to run migrations for creating the Titan, and 
 
 In terminal start the rails server by typing 'rails s'.
 
-In terminal navigate to the app Frontend directory but typing cd .. then type cd ../frontend. In the frontend directory type 'open index.html'. In your browser open a new window and enter 'localhost:' followed by the server address shown by the rails server, the last 4 digits after the colon. (For example 'Listening on 127.0.0.1:3000' would use 3000, as in localhost:3000)
+In terminal navigate to the app Frontend directory but typing cd .. to return to the outer directory then type cd ../kaiju-frontend. In the frontend directory type 'open index.html'. In your browser open a new window and enter 'localhost:' followed by the server address shown by the rails server, the last 4 digits after the colon. (For example 'Listening on 127.0.0.1:3000' would use 3000, as in localhost:3000)
 
 Project Contributors:
 Project License:
